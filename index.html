@@ -7,8 +7,21 @@
 </head>
 <body>
 <p>Welcome to the To do App, this is gonna be so much fun.</p>
-<p>Create a task for today?</p>
-<input type="text" id="input" /> <button id="submit">Submit</button>
+<form id="newform">   
+    <label id="labelText">Create a task for today?</label>
+    <input type="text" id="inputText" /> 
+    <button type="submit" id="submitButton">Submit</button>
+</form>
+<div>
+    <p>Tasks for today</p>
+    <div id = "taskList">
+        
+    </div>
+</div>
 <script src="index.js"></script>
+<script>
+    document.getElementById("taskList").innerHTML = window.inputList;
+</script>
 </body>
 </html>
+
