@@ -1,0 +1,8 @@
+ul, li{
+    cursor: pointer;
+}
+
+.clicked{
+    text-decoration: line-through;
+}
+
