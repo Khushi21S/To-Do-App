@@ -1,6 +1,8 @@
 const form = document.getElementById("newform");
 const listItems = document.getElementById("taskList");
 const onGoingTasks = document.getElementById("onGoingTasks");
+const completedTasks = document.getElementById("completedTasks");
+
 
 //function to add a task in the list
 
@@ -25,7 +27,25 @@ function addTask(event) {
   createTask(event, inputField, "taskList");
 }
 
+//function to delete task
 
+function deleteTask(list){
+  const selectedTasks = Array.from(list.childNodes);
+  selectedTasks.forEach((element) => {
+    const node = element.querySelector('input[type="checkbox"]');
+    if(node && node.checked){
+      element.remove();
+    }
+  })
+}
+
+function deleteTaskFromTaskList(){
+  deleteTask(listItems);
+}
+
+function deleteTaskFromCompletedList(){
+  deleteTask(completedTasks);
+}
 
 //function to add task to any list
 function addTaskToAnyList(event, addFromList, addToList ){
@@ -58,6 +78,15 @@ moveButtonToOngoingTask.addEventListener("click", addTasktoOngoingTasks);
 //adding event listener to move button to Completed task
 const moveButtonToCompletedTask = document.getElementById("button3")
 moveButtonToCompletedTask.addEventListener("click", addTasktoCompletedTasks);
+
+
+//adding event listener to remove task from listItems
+const deleteButtonFromTaskList = document.getElementById("button2");
+deleteButtonFromTaskList.addEventListener("click", deleteTaskFromTaskList);
+
+//adding event listener to remove task from completedTask
+const deleteButtonFromCompletedTask = document.getElementById("button4");
+deleteButtonFromCompletedTask.addEventListener("click", deleteTaskFromCompletedList);
 
 
 
