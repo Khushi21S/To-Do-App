@@ -2,6 +2,33 @@ const form = document.getElementById("newform");
 const listItems = document.getElementById("taskList");
 const onGoingTasks = document.getElementById("onGoingTasks");
 const completedTasks = document.getElementById("completedTasks");
+const getPriority = document.getElementById("selectPriority");
+
+
+
+function selectPriority(){
+  const priorityOptions = getPriority.querySelectorAll("option");
+  let selectedPriority = priorityOptions[0];
+  priorityOptions.forEach((item) => {
+    if(item.selected){
+      selectedPriority = item;
+    }
+  })
+  return selectedPriority;
+}
+
+getPriority.addEventListener("change", selectPriority);
+
+function giveTag(priority, item){
+  if(priority.innerText == "Low") {
+    item.className = "lowTask"
+  } else if(priority.innerText == "Medium"){
+    item.className = "mediumTask"
+  } else{
+    item.className = "highTask";
+  }
+}
+
 
 //function to add a task in the list
 
@@ -17,11 +44,11 @@ function createTask(event, inputField, id) {
   checkbox.type = "checkbox";
   listItem.innerHTML = inputField.value ? inputField.value : inputField;
   listItem.appendChild(checkbox);
-
+  const priority = selectPriority();
+  giveTag(priority, listItem);
   document.getElementById(`${id}`).appendChild(listItem);
   inputField.value = "";
 }
-
 
 // function to add task in the listItems.
 function addTask(event) {
@@ -105,16 +132,16 @@ deleteButtonFromCompletedTask.addEventListener(
 
 
 //function to add strikethrough to the list items.
-listItems.addEventListener("click", function (event) {
-  if (event.target.tagName == "LI") {
-    event.preventDefault();
-    if (!event.target.className) {
-      event.target.className = "clicked";
-    } else {
-      event.target.className = "";
-    }
-  }
-});
+// listItems.addEventListener("click", function (event) {
+//   if (event.target.tagName == "LI") {
+//     event.preventDefault();
+//     if (!event.target.className) {
+//       event.target.className = "clicked";
+//     } else {
+//       event.target.className = "";
+//     }
+//   }
+// });
 
 
 

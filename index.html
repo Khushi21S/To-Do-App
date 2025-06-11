@@ -13,6 +13,11 @@
         >Create a task for today? <span class="date"></span
       ></label>
       <input type="text" id="inputText" />
+      <select id="selectPriority">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
       <button type="submit" id="submitButton">Submit</button>
     </form>
     <div class="allTasks">
@@ -27,7 +32,7 @@
         <ul id="taskList"></ul>
       </div>
       <div>
-       <div class="headerTask">
+        <div class="headerTask">
           <p>Ongoing Tasks</p>
           <div>
             <button id="button3">Move to Completed Task</button>
@@ -36,11 +41,10 @@
         <ul id="onGoingTasks"></ul>
       </div>
       <div>
-       <div class="headerTask">
+        <div class="headerTask">
           <p>Completed tasks</p>
           <div>
-            <button id="button4">Delete
-            </button>
+            <button id="button4">Delete</button>
           </div>
         </div>
         <ul id="completedTasks"></ul>

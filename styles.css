@@ -11,6 +11,8 @@
     gap: 1rem;
 }
 
+
+
 ul, li{
     cursor: pointer;
 }
@@ -24,6 +26,19 @@ ul{
 
 li{
     text-align: center;
+    padding: 1rem 2rem;
+}
+
+.lowTask{
+    background-color: rgb(60, 195, 60);
+}
+
+.mediumTask{
+    background-color: yellow;
+}
+
+.highTask{
+    background-color: red;
 }
 
 .clicked{
